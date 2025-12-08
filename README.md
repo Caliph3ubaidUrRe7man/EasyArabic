@@ -6,7 +6,7 @@
 
 **Key changes and rationale**
 - **Daal / Dhaal / Taa':** These characters are moved to more reachable keys so you no longer need large hand stretches to type them.
-- **Haa' / Khaa' / 'Ayn / Jeem grouping:** The layout relocates `ح` (Haa') so `خ` (Khaa') sits closer to `ع` ('Ayn), followed by `ح` (Haa) and `ج` (Jeem). This grouping reflects common phonetic and typing patterns and speeds transitions between related characters.
+- **Haa' / Khaa' / 'Ayn / Jeem grouping:** The layout relocates `ه` (Haa) so `خ` (Khaa') sits closer to `ع` ('Ayn), followed by `ح` (Haa') and `ج` (Jeem). This grouping reflects common phonetic and typing patterns and speeds transitions between related characters.
 - **Tashkeel on number row:** The number row contains tashkeel (diacritics) instead of digits by default, because in many Arabic writing contexts diacritics are used more frequently than numerals. Numbers remain available via Shift or with an alternative layer.
 - **Extra characters:** The layout includes several additional Arabic characters and marks that are not present on most standard keyboards, useful for linguistic, academic, or regional typing needs.
 
@@ -17,7 +17,7 @@
 - **User-local (temporary, no root):**
 
 	```bash
-	setxkbmap -I$HOME/.config/xkb -layout arabic
+	setxkbmap -I$HOME/.config/xkb/symbols -layout arabic
 	```
 
 	This tells X to include your local XKB symbols directory and load the `arabic` layout for the current session.
@@ -56,8 +56,8 @@
 - This layout is provided as an XKB symbols file and is intended for X11-based environments. Wayland compositors may use XKB too, but behavior can vary by compositor. Desktop environment keyboard settings can override or affect how the layout is exposed in GUI pickers.
 
 **Attribution & license**
-- **Author:** (add your name or handle here)
-- **License:** Add a license if you want this layout to be re-used (e.g., MIT, CC0). If no license is included, default copyright applies.
+- **Author:** 3ubaidUrRe7man
+- **License:** No License
 
 **Contributing**
 - If you have suggestions for improved mappings, additional characters, or regional variants, please open an issue or a pull request. Include a short rationale and example use-cases for any proposed change.
