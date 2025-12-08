@@ -1,4 +1,4 @@
-# EasyArabic — ergonomic Arabic XKB layout
+# EasyArabic — Ergonomic Arabic XKB layout
 
 **Overview**
 - **Purpose:** EasyArabic is an ergonomic Arabic keyboard layout designed to make frequently-used Arabic letters and diacritics more accessible. It repositions several characters that are inconveniently distant on standard layouts (for example: `د` (daal), `ذ` (dhaal), and `ط` (Taa')).
@@ -17,7 +17,7 @@
 - **User-local (temporary, no root):**
 
 	```bash
-	setxkbmap -I$HOME/.config/xkb/symbols -layout arabic
+	setxkbmap -I $HOME/.config/xkb/symbols -layout arabic
 	```
 
 	This tells X to include your local XKB symbols directory and load the `arabic` layout for the current session.
