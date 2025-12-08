@@ -17,7 +17,8 @@ xkb_symbols "basic" {
     key <AE09> {  [     U0652,      9,      U0029,        U0669]  }; // ْ 9 ) ٩
     key <AE10> {  [     U06E1,      0,      U0028,        U0660]  }; // ۡ 0 ( ٠
     key <AE11> {  [     U0656,      exclam,      invertedexclam]  }; // ٖ ! ¡
-    key <AE12> {  [     U0657,      grave,      acute]  }; // ٗ `  ´
+    key <AE12> {  [     U0657,      grave,      acute,      U065D]  }; // ٗ `  ´ ٝ
+    key <AE13> {  [     U0653,      U060D,      U0614,      UO6OO]}; // ٓ ؍  ؔ ؀
 
     key <AD01> {  [     U0636,      U003E,      U069E,      UFDFF]  }; // ض > ڞ ﷿
     key <AD02> {  [     U0635,      U003C,      U069D,      UFDFE]  }; // ص < ڝ ﷾
@@ -30,7 +31,7 @@ xkb_symbols "basic" {
     key <AD09> {  [     U062D,      U007D,      UFDFB,      U27E9]  }; // ح } ﷻ >
     key <AD10> {  [     U062C,      U007B,      U0686,      U27E8]  }; // ج { چ <
     key <AD11> {  [     U060C,      comma,      UFDFD,      U00A4]  }; // ، , ﷽ ¤
-    key <AD12> {  [     U061B,      colon,      semicolon]  }; // ؛ : ;
+    key <AD12> {  [     U061B,      colon,      semicolon,      U061E]  }; // ؛ : ; ؞
 
     key <AC01> {  [     U0634,      U005D,      U069C]  }; // ش ] ڜ
     key <AC02> {  [     U0633,      U005B,      U069A,      U069B]  }; // س [ ښ ڛ
@@ -56,7 +57,12 @@ xkb_symbols "basic" {
     key <AB08> {  [     U0648,      U0624,      U2015,      U2014]  }; // و ؤ ― —
     key <AB09> {  [     U0632,      U00BB,      U0698,      U0606]  }; // ز » ژ ؆
     key <AB10> {  [     U0638,      U00AB,      U069F,      U0607]  }; // ظ « ڟ ؇
-    
+    key <AB11> {  [      U066E,      U06A1,        U066F,     U0603]}; // ٮ ڡ ٯ ؃
+
+    key <FK19> {  [     U06E5,      U08F3,      U08D3,      UFD4E]}; // ۥ ࣳ ࣓ ﵎
+    key <FK24> {  [     UFD41,      UFD42,      UFD43,      UFD44]}; // ﵁ ﵂ ﵃ ﵄
+
+    key <JPCM> {  [     U200C,      U200D]  }; // ZWNJ ZWJ
     include       "level3(ralt_switch)"
 };
 
