@@ -1,0 +1,84 @@
+default partial alphanumeric_keys
+xkb_symbols "basic" {
+
+    name[Group1]= "Arabic";
+
+    key.type[Group1]="FOUR_LEVEL";
+    
+    key <TLDE> {  [     U065C,      U065A,      tilde,      U065B]  }; // ٜ  ٚ ~ ٛ
+    key <AE01> {  [     U0670,      1,      quotedbl,       U0661]  }; // ٰ 1 " ١
+    key <AE02> {  [     U064C,      2,      at,     U0662]  }; // ٌ 2 @ ٢
+    key <AE03> {  [     U064F,      3,      numbersign,     U0663]  }; // ُ 3 # ٣
+    key <AE04> {  [     U064B,      4,      dollar,     U0664]  }; // ً 4 $ ٤
+    key <AE05> {  [     U064E,      5,      percent,        U0665]  }; // َ  5 % ٥
+    key <AE06> {  [     U0651,      6,      asciicircum,        U0666]  }; // ّ 6 ^ ٦
+    key <AE07> {  [     U0650,      7,      ampersand,        U0667]  }; // ِ 7 & ٧
+    key <AE08> {  [     U064D,      8,      asterisk,        U0668]  }; // ٍ 8 * ٨
+    key <AE09> {  [     U0652,      9,      U0029,        U0669]  }; // ْ 9 ) ٩
+    key <AE10> {  [     U06E1,      0,      U0028,        U0660]  }; // ۡ 0 ( ٠
+    key <AE11> {  [     U0656,      exclam,      invertedexclam]  }; // ٖ ! ¡
+    key <AE12> {  [     U0657,      grave,      acute]  }; // ٗ `  ´
+
+    key <AD01> {  [     U0636,      U003E,      U069E,      UFDFF]  }; // ض > ڞ ﷿
+    key <AD02> {  [     U0635,      U003C,      U069D,      UFDFE]  }; // ص < ڝ ﷾
+    key <AD03> {  [     U062B,      U0619,      U067E,      UFDF2]  }; // ث ؙ ٿ ﷲ
+    key <AD04> {  [     U0642       U0618,      U06A7,      U06A8]  }; // ق ؘ ڧ ڨ ڨ
+    key <AD05> {  [     U0641,      U06A2,      U06A4,      U06A5]  }; // ف ڢ ڤ ڥ
+    key <AD06> {  [     U063A,      U0625,      U06A0,      UFDF4]  }; // غ إ ڠ ﷴ
+    key <AD07> {  [     U0639,      U0640,      UFDFA,      UFD4C]  }; // ع ـ ﷺ ﵌
+    key <AD08> {  [     U062E,      U066A,      U0609,      U060A]  }; // خ ٪ ؉ ؊
+    key <AD09> {  [     U062D,      U007D,      UFDFB,      U27E9]  }; // ح } ﷻ >
+    key <AD10> {  [     U062C,      U007B,      U0686,      U27E8]  }; // ج { چ <
+    key <AD11> {  [     U060C,      comma,      UFDFD,      U00A4]  }; // ، , ﷽ ¤
+    key <AD12> {  [     U061B,      colon,      semicolon]  }; // ؛ : ;
+
+    key <AC01> {  [     U0634,      U005D,      U069C]  }; // ش ] ڜ
+    key <AC02> {  [     U0633,      U005B,      U069A,      U069B]  }; // س [ ښ ڛ
+    key <AC03> {  [     U064A,      U201C,      U06CC,      U06D0]  }; // ي “ ی ې
+    key <AC04> {  [     U0628,      U201D,      U067E,      U066E]  }; // ب ” پ ٮ
+    key <AC05> {  [     U0644,      U0621,      U0654,      U0655]  }; // ل ء ٔ ٕ
+    key <AC06> {  [     U0627,      U0623,      U060E,      U0602]  }; // ا أ َ ؂
+    key <AC07> {  [     U062A,      U2018,      U066B,      U08F1]  }; // ت ‘ ٫ ࣱ
+    key <AC08> {  [     U0646,      U2019,      U06BA,      U08F0]  }; // ن ’ ں ࣰ
+    key <AC09> {  [     U0645,      UFD3E,      U066C,      U08F2]  }; // م ﴾ ٬ ࣲ
+    key <AC10> {  [     U0643,      UFD3F,      U06AF,      U6AA]  }; // ك ﴿ گ ڪ
+    key <AC11> {  [     period,     U06D4,      U061D,      U06DD]  }; // . ۔ ؝ ۝
+    key <BKSL> {  [     U061F,      questionmark,      slash,       U00BF]  }; // ؟ ? / ¿
+
+    key <LSGT> {  [     backslash,      bar,        U00A6,      U060F]  }; // \ | ¦ ؏
+    key <AB01> {  [     U0637,      U203A,      plus,       U00B1]  }; // ط › + ±
+    key <AB02> {  [     U0630,      U2039,      U2212]  }; // ذ ‹ −
+    key <AB03> {  [     U062F,      U061A,      U00D7,      U066D]  }; // د ؚ × ٭
+    key <AB04> {  [     U0631,      U0622,      U00F7,      UFDFC]  }; // ر آ ÷ ﷼
+    key <AB05> {  [     U0647,      U0671,      U06C1,      U06C0]  }; // ه ٱ ہ ۀ
+    key <AB06> {  [     U0649,      U0626,      equals,     U221A]  }; // ى ئ = √
+    key <AB07> {  [     U0629,      minus,      underscore,     U2010]  }; // ة - _ ‐
+    key <AB08> {  [     U0648,      U0624,      U2015,      U2014]  }; // و ؤ ― —
+    key <AB09> {  [     U0632,      U00BB,      U0698,      U0606]  }; // ز » ژ ؆
+    key <AB10> {  [     U0638,      U00AB,      U069F,      U0607]  }; // ظ « ڟ ؇
+    
+    include       "level3(ralt_switch)"
+};
+
+partial hidden keypad_keys
+xkb_symbols "digits" {
+    
+    key.type[Group1]="FOUR_LEVEL_MIXED_KEYPAD";
+
+    key <KP7>  { [ KP_Home,     U0667,      7,      U06F7]  }; // ٧ 7 ۷
+    key <KP8>  { [ KP_Up,     U0668,        8,      U06F8]  }; // ٨ 8 ۸
+    key <KP9>  { [ KP_Prior,     U0669,        9,      U06F9]  }; // ٩ 9 ۹
+
+    key <KP4>  { [ KP_Left,     U0664,      4,      U06F4]  }; // ٤ 4 ۴
+    key <KP5>  { [ KP_Begin,     U0665,      5,      U06F5]  }; // ٥ 5 ۵
+    key <KP6>  { [ KP_Right,     U0666,      6,      U06F6]  }; // ٦ 6 ۶
+
+    key <KP1>  { [ KP_End,     U0661,      1,       U06F1]  }; // ١ 1 ۱
+    key <KP2>  { [ KP_Down,     U0662,      2,      U06F2]  }; // ٢ 2 ۲
+    key <KP3>  { [ KP_Next,     U0663,      3,      U06F3]  }; // ٣ 3 ۳
+
+    key <KP0>  { [ KP_Insert,     U0660,      0,        U06F0]  }; // ٠ 0 ۰
+    key <KPDL> { [ KP_Delete,     U066B,      period,      U06FD]  }; // ٫ . ٬
+    
+    include       "kpdl(momayyezoss)"
+};
