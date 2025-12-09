@@ -88,11 +88,11 @@
 	```
 
 **Fcitx5 configuration (bonus)**
-- **User config (recommended):** put per-user fcitx5 config files in `~/.config/fcitx5/`. The main user config file is `~/.config/fcitx5/config` (other files live in the same directory).
+- **User config (recommended):** put per-user fcitx5 config files in `$HOME/.local/share/fcitx5/inputmethod`. The main user config file is `$HOME/.local/share/fcitx5/inputmethod` 
 
 	```sh
-	mkdir -p $HOME/.config/fcitx5
-	cp my-fcitx5.conf $HOME/.config/fcitx5/config
+	mkdir -p $HOME/.local/share/fcitx5/inputmethod
+	cp my-fcitx5.conf $HOME/.local/share/fcitx5/inputmethod
 	# Restart fcitx5 to apply changes
 	fcitx5 -r || fcitx5 &
 	```
