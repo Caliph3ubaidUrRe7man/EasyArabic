@@ -69,7 +69,7 @@ xkb_symbols "easyarabic" {
 };
 
 partial hidden keypad_keys
-xkb_symbols "digits" {
+xkb_symbols "easydigits" {
     
     key.type[Group1]="FOUR_LEVEL_MIXED_KEYPAD";
 
