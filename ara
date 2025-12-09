@@ -23,7 +23,7 @@ xkb_symbols "easyarabic" {
     key <AD01> {  [     U0636,      U003E,      U069E,      UFDFF]  }; // ض > ڞ ﷿
     key <AD02> {  [     U0635,      U003C,      U069D,      UFDFE]  }; // ص < ڝ ﷾
     key <AD03> {  [     U062B,      U0619,      U067E,      UFDF2]  }; // ث ؙ ٿ ﷲ
-    key <AD04> {  [     U0642       U0618,      U06A7,      U06A8]  }; // ق ؘ ڧ ڨ ڨ
+    key <AD04> {  [     U0642,       U0618,      U06A7,      U06A8]  }; // ق ؘ ڧ ڨ ڨ
     key <AD05> {  [     U0641,      U06A2,      U06A4,      U06A5]  }; // ف ڢ ڤ ڥ
     key <AD06> {  [     U063A,      U0625,      U06A0,      UFDF4]  }; // غ إ ڠ ﷴ
     key <AD07> {  [     U0639,      U0640,      UFDFA,      UFD4C]  }; // ع ـ ﷺ ﵌
