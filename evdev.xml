@@ -4,7 +4,7 @@
 		<shortDescription>ara</shortDescription>
 		<description>Arabic (Easy)</description>
 		<languageList>
-			<iso639>ara</iso639>
+			<iso639Id>ara</iso639Id>
 		</languageList>
 	</configItem>
 </variant>
