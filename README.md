@@ -17,8 +17,8 @@
 - **Back up current system files first:**
 
 	```sh
-	sudo cp /usr/share/X11/xkb/symbols/ara /usr/share/X11/xkb/symbols/ara.bak 2>/dev/null || true
-	sudo cp /usr/share/X11/xkb/rules/evdev.xml /usr/share/X11/xkb/rules/evdev.xml.bak 2>/dev/null || true
+sudo cp /usr/share/X11/xkb/symbols/ara /usr/share/X11/xkb/symbols/ara.bak 2>/dev/null || true
+sudo cp /usr/share/X11/xkb/rules/evdev.xml /usr/share/X11/xkb/rules/evdev.xml.bak 2>/dev/null || true
 	```
 
 - **Append or install symbol file:**
@@ -26,13 +26,13 @@
 
 		```sh
 		# from this directory: append this file's contents to the system symbols
-		sudo bash -c 'cat ara >> /usr/share/X11/xkb/symbols/ara'
+	sudo bash -c 'cat ara >> /usr/share/X11/xkb/symbols/ara'
 		```
 
 	- Or install as a separate file to avoid merging conflicts:
 
 		```sh
-		sudo cp ara /usr/share/X11/xkb/symbols/ara-custom
+	sudo cp ara /usr/share/X11/xkb/symbols/ara-custom
 		```
 
 - **Add your layout to `evdev.xml`:** edit `/usr/share/X11/xkb/rules/evdev.xml` (requires sudo) and add a `<layout>` entry inside the existing `<layoutList>` element. Example fragment to add:
@@ -53,7 +53,7 @@
 - **Reload / test:** log out and log back in, or test immediately (X):
 
 	```sh
-	setxkbmap -layout ara
+setxkbmap -layout ara
 	# if you used a custom file name: setxkbmap -I/usr/share/X11/xkb -layout ara
 	```
 
@@ -63,19 +63,19 @@
 - **Per-user XKB (no root needed, works on Xorg):**
 
 	```sh
-	mkdir -p $HOME/.local/share/xkb/symbols
-	cp ara $HOME/.local/share/xkb/symbols/ara
+mkdir -p $HOME/.local/share/xkb/symbols
+cp ara $HOME/.local/share/xkb/symbols/ara
 	# Load for the current X session
-	setxkbmap -I $HOME/.local/share/xkb -layout ara
+setxkbmap -I $HOME/.local/share/xkb -layout ara
 	```
 
 - **/etc overrides (OSTree systems often allow /etc to be modified):** place the files under `/etc/X11/xkb/`:
 
 	```sh
-	sudo mkdir -p /etc/X11/xkb/symbols
-	sudo cp ara /etc/X11/xkb/symbols/ara
-	sudo mkdir -p /etc/X11/xkb/rules
-	sudo cp evdev.xml /etc/X11/xkb/rules/evdev.xml
+sudo mkdir -p /etc/X11/xkb/symbols
+sudo cp ara /etc/X11/xkb/symbols/ara
+sudo mkdir -p /etc/X11/xkb/rules
+sudo cp evdev.xml /etc/X11/xkb/rules/evdev.xml
 	```
 
 	Note: some desktop components may still read only `/usr/share`; test GUI pickers and use the per-user method if needed.
@@ -84,24 +84,24 @@
 
 	```sh
 	# Example — careful: this replaces the list
-	gsettings set org.gnome.desktop.input-sources sources "[(\'xkb\', \'us\'), (\'xkb\', \'ara\')]"
+gsettings set org.gnome.desktop.input-sources sources "[(\'xkb\', \'us\'), (\'xkb\', \'ara\')]"
 	```
 
 **Fcitx5 configuration (bonus)**
 - **User config (recommended):** put per-user fcitx5 config files in `$HOME/.local/share/fcitx5/inputmethod`. The main user config file is `$HOME/.local/share/fcitx5/inputmethod` 
 
 	```sh
-	mkdir -p $HOME/.local/share/fcitx5/inputmethod
-	cp my-fcitx5.conf $HOME/.local/share/fcitx5/inputmethod
+mkdir -p $HOME/.local/share/fcitx5/inputmethod
+cp my-fcitx5.conf $HOME/.local/share/fcitx5/inputmethod
 	# Restart fcitx5 to apply changes
-	fcitx5 -r || fcitx5 &
+fcitx5 -r || fcitx5 &
 	```
 
 - **System-wide defaults:** place defaults under `/etc/xdg/fcitx5/` (for distribution-wide defaults):
 
 	```sh
-	sudo mkdir -p /etc/xdg/fcitx5
-	sudo cp my-fcitx5.conf /etc/xdg/fcitx5/config
+sudo mkdir -p /etc/xdg/fcitx5
+sudo cp my-fcitx5.conf /etc/xdg/fcitx5/config
 	```
 
 - **Important:** Fcitx5 can override XKB settings by default. To stop it overriding your XKB layout, open `fcitx5-configtool` → Addons → XCB and uncheck `Allow Overriding System XKB Settings`.
