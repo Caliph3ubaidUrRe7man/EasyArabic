@@ -101,7 +101,7 @@ fcitx5 -r || fcitx5 &
 
 ```sh
 sudo mkdir -p /etc/xdg/fcitx5
-sudo cp my-fcitx5.conf /etc/xdg/fcitx5/config
+sudo cp keyboard-easy-ar.conf /etc/xdg/fcitx5/config
 ```
 
 - **Important:** Fcitx5 can override XKB settings by default. To stop it overriding your XKB layout, open `fcitx5-configtool` → Addons → XCB and uncheck `Allow Overriding System XKB Settings`.
