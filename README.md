@@ -84,7 +84,7 @@ sudo cp evdev.xml /etc/X11/xkb/rules/evdev.xml
 
 ```sh
 # Example — careful: this replaces the list
-gsettings set org.gnome.desktop.input-sources sources "[(\'xkb\', \'us\'), (\'xkb\', \'ara\')]"
+gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us'), ('xkb', 'ara')]"
 ```
 
 **Fcitx5 configuration (bonus)**
