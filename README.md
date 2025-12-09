@@ -92,7 +92,7 @@ gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us'), ('xkb', '
 
 ```sh
 mkdir -p $HOME/.local/share/fcitx5/inputmethod
-cp my-fcitx5.conf $HOME/.local/share/fcitx5/inputmethod
+cp keyboard-easy-ar.conf $HOME/.local/share/fcitx5/inputmethod
 	# Restart fcitx5 to apply changes
 fcitx5 -r || fcitx5 &
 ```
