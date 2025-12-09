@@ -10,57 +10,111 @@
 - **Tashkeel on number row:** The number row contains tashkeel (diacritics) instead of digits by default, because in many Arabic writing contexts diacritics are used more frequently than numerals. Numbers remain available via Shift or with an alternative layer.
 - **Extra characters:** The layout includes several additional Arabic characters and marks that are not present on most standard keyboards, useful for linguistic, academic, or regional typing needs.
 
-**Files**
-- **Layout file:** The XKB symbol file for this layout is included as [arabic](arabic) in this directory.
+**Files in this folder**
+- The layout file included here is [arabic](arabic). If you instead use a file named `ara` (for example in `$HOME/.config/xkb/symbols/ara`), substitute that name in the examples below.
 
-**Quick install (temporary)**
-- **User-local (temporary, no root):**
+**Install into system files (append `ara` and `evdev.xml`)**
+- **Back up current system files first:**
 
-	```bash
-	setxkbmap -I $HOME/.config/xkb/symbols -layout arabic
+	```sh
+	sudo cp /usr/share/X11/xkb/symbols/ara /usr/share/X11/xkb/symbols/ara.bak 2>/dev/null || true
+	sudo cp /usr/share/X11/xkb/rules/evdev.xml /usr/share/X11/xkb/rules/evdev.xml.bak 2>/dev/null || true
 	```
 
-	This tells X to include your local XKB symbols directory and load the `arabic` layout for the current session.
+- **Append or install symbol file:**
+	- Append local `ara` to the system `ara` symbols file:
 
-**Install system-wide (persistent)**
-- **System install (requires root):**
+		```sh
+		# from this directory: append this file's contents to the system symbols
+		sudo bash -c 'cat ara >> /usr/share/X11/xkb/symbols/ara'
+		```
 
-	```bash
-	sudo cp arabic /usr/share/X11/xkb/symbols/
-	sudo dpkg-reconfigure xkb-data   # Debian/Ubuntu; other distros may vary
+	- Or install as a separate file to avoid merging conflicts:
+
+		```sh
+		sudo cp ara /usr/share/X11/xkb/symbols/ara-custom
+		```
+
+- **Add your layout to `evdev.xml`:** edit `/usr/share/X11/xkb/rules/evdev.xml` (requires sudo) and add a `<layout>` entry inside the existing `<layoutList>` element. Example fragment to add:
+
+	```xml
+	<layout>
+		<configItem>
+			<name>ara</name>
+			<shortDescription>ara</shortDescription>
+			<description>Arabic — custom ara</description>
+			<languageList>
+				<iso639Id>ara</iso639Id>
+			</languageList>
+		</configItem>
+	</layout>
 	```
 
-	After copying, you can select the layout using your desktop environment's keyboard settings or with `setxkbmap -layout arabic`.
+- **Reload / test:** log out and log back in, or test immediately (X):
 
-**Usage and examples**
-- **What changed visually and functionally:**
-	- The `د`/`ذ`/`ط` cluster is moved to keys you can reach without large hand movement.
-	- `خ` (Khaa') is positioned adjacent to `ع` ('Ayn), then `ح` (Haa'), then `ج` (Jeem), which matches common Arabic finger motions.
-	- The number row contains common tashkeel marks (fatha, damma, kasra, sukun, shadda, etc.). Use `Shift` (or your system modifier) to access digits if needed.
-	- Several extra glyphs not normally present on the standard layout are available directly on accessible keys.
-
-**Tips**
-- **Find the active layout name:** If the layout doesn't activate as shown, the internal layout name may differ. Use `setxkbmap -print -verbose 10` to inspect the current XKB configuration.
-- **Reloading XKB rules:** If you install the layout system-wide and don't see it in the GUI, log out and back in or restart Xorg/your desktop session.
-
-**Troubleshooting**
-- **Layout not loading:** Verify the file path and syntax. Validate the loaded map with:
-
-	```bash
-	setxkbmap -print | xkbcomp -xkb - $DISPLAY
+	```sh
+	setxkbmap -layout ara
+	# if you used a custom file name: setxkbmap -I/usr/share/X11/xkb -layout ara
 	```
 
-- **Check for syntax errors:** If X refuses the layout, try compiling and checking the file with `xkbcomp` and review `/var/log/Xorg.0.log` for errors.
+**Immutable distros (Silverblue / OSTree-style etc.)**
+- If `/usr/share` is read-only, use one of these approaches:
 
-**Compatibility notes**
-- This layout is provided as an XKB symbols file and is intended for X11-based environments. Wayland compositors may use XKB too, but behavior can vary by compositor. Desktop environment keyboard settings can override or affect how the layout is exposed in GUI pickers.
+- **Per-user XKB (no root needed, works on Xorg):**
 
-**Attribution & license**
-- **Author:** 3ubaidUrRe7man
-- **License:** No License
+	```sh
+	mkdir -p $HOME/.local/share/xkb/symbols
+	cp ara $HOME/.local/share/xkb/symbols/ara
+	# Load for the current X session
+	setxkbmap -I $HOME/.local/share/xkb -layout ara
+	```
 
-**Contributing**
-- If you have suggestions for improved mappings, additional characters, or regional variants, please open an issue or a pull request. Include a short rationale and example use-cases for any proposed change.
+- **/etc overrides (OSTree systems often allow /etc to be modified):** place the files under `/etc/X11/xkb/`:
 
-**Contact**
-- For questions or help, please open an issue in this repository.
+	```sh
+	sudo mkdir -p /etc/X11/xkb/symbols
+	sudo cp ara /etc/X11/xkb/symbols/ara
+	sudo mkdir -p /etc/X11/xkb/rules
+	sudo cp evdev.xml /etc/X11/xkb/rules/evdev.xml
+	```
+
+	Note: some desktop components may still read only `/usr/share`; test GUI pickers and use the per-user method if needed.
+
+- **Desktop GUI fallback:** if you cannot edit `evdev.xml` and need the layout visible in GNOME/KDE, add the layout via the DE input-sources UI or via `gsettings`:
+
+	```sh
+	# Example — careful: this replaces the list
+	gsettings set org.gnome.desktop.input-sources sources "[(\'xkb\', \'us\'), (\'xkb\', \'ara\')]"
+	```
+
+**Fcitx5 configuration (bonus)**
+- **User config (recommended):** put per-user fcitx5 config files in `~/.config/fcitx5/`. The main user config file is `~/.config/fcitx5/config` (other files live in the same directory).
+
+	```sh
+	mkdir -p $HOME/.config/fcitx5
+	cp my-fcitx5.conf $HOME/.config/fcitx5/config
+	# Restart fcitx5 to apply changes
+	fcitx5 -r || fcitx5 &
+	```
+
+- **System-wide defaults:** place defaults under `/etc/xdg/fcitx5/` (for distribution-wide defaults):
+
+	```sh
+	sudo mkdir -p /etc/xdg/fcitx5
+	sudo cp my-fcitx5.conf /etc/xdg/fcitx5/config
+	```
+
+- **Important:** Fcitx5 can override XKB settings by default. To stop it overriding your XKB layout, open `fcitx5-configtool` → Addons → XCB and uncheck `Allow Overriding System XKB Settings`.
+
+**Notes & troubleshooting**
+- If the layout does not appear in a GUI picker after editing `evdev.xml`, log out / reboot, and check compositor/DE caches. Use `setxkbmap -print -verbose 10` and `xkbcomp` to debug.
+- For Wayland compositors, behavior varies — the per-user `setxkbmap` approach is X-specific; many compositors rely on the same XKB database but may read only `/usr/share`.
+
+**Want automation?**
+- I can add an `install.sh` script that performs safe backups and installs both the symbol file and the `evdev.xml` fragment, or add a small `evdev-fragment.xml` file to this repo. Tell me which you prefer.
+
+---
+
+**Author & contact**
+- Author: 3ubaidUrRe7man — open an issue in this repo for questions or suggestions.
+
