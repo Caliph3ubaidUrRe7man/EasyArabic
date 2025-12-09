@@ -1,6 +1,10 @@
 <variant>
 	<configItem>
 		<name>easyarabic</name>
+		<shortDescription>ara</shortDescription>
 		<description>Arabic (Easy)</description>
+		<languageList>
+			<iso639>ara</iso639>
+		</languageList>
 	</configItem>
 </variant>
